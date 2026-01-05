@@ -36,7 +36,7 @@ class NetworkDataExtract():
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
-    def insert_data_mongo(self, records, database, collection):
+    def insert_data_mongodb(self, records, database, collection):
         try:
             self.database=database
             self.collection=collection
@@ -56,4 +56,8 @@ if __name__=='__main__':
     FILE_PATH="Network_Data\phising.csv"
     DATABASE="SHREYAKUSH"
     Collection="NetworkData"
-    
+    networkobj=NetworkDataExtract()
+    records=networkobj.cv_to_json_converter(file_path=FILE_PATH)
+    print(records)
+    no_of_records=networkobj.insert_data_mongodb(records, DATABASE,Collection)
+    print(no_of_records)
