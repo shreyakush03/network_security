@@ -18,5 +18,15 @@ class DataValidation:
             self._schema_config=read_yaml_file(SCHEMA_FILE_PATH)
         except Exception as e:
             raise NetworkSecurityException(e,sys)
+        
+    def initiate_data_validation(self)->DataValidationArtifact:
+        try:
+            train_file_path=self.data_ingestion_artifact.trained_file_path
+            test_file_path=self.data_ingestion_artifact.test_file_path
+
+            #read the data from train and test
+            train_dataframe=DataValidation
+        except Exception as e:
+            raise NetworkSecurityException(e,sys)
 
 
